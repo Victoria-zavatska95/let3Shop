@@ -1,0 +1,14 @@
+<% if @products == [] %>
+<p>There is no yet products</>
+<% else %>
+<% @products.each do |product| %>
+<p><%= product.title %><br/>
+ <%= link_to "Show it", product_path(product.id) %>
+ <% end %>
+  <% end %>
+<p><%=  link_to  "Log in", new_user_session_path %></p>
+<%=  link_to  "Log out", destroy_user_session_path, method: :delete %></br>
+<% if user_signed_in? %>
+ <%= link_to "Create my product", new_product_path %>
+<% end %>
+
